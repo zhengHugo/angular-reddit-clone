@@ -1,0 +1,61 @@
+<div class="register-section">
+  <div class="row justify-content-center">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-header" style="text-align: center">
+          <h4>Register</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="signupForm" (ngSubmit)="signup()">
+
+            <div class="form-group row">
+              <label for="emailAddress" class="col-xl-4 col-form-label text-xl-right">Email Address</label>
+              <div class="col-xl-6">
+                <input type="email" [formControlName]="'email'" id="emailAddress" class="form-control"
+                       name="email-address" required autofocus>
+                <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">
+                  Please provide a valid email
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="username" class="col-xl-4 col-form-label text-xl-right">User Name</label>
+              <div class="col-xl-6">
+                <input type="text" [formControlName]="'username'" id="username" class="form-control" required autofocus>
+                <span *ngIf="!signupForm.get('username').valid && signupForm.get('email').touched">
+                  Please provide a valid username
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="password" class="col-xl-4 col-form-label text-xl-right">Password</label>
+              <div class="col-xl-6">
+                <input type="password" [formControlName]="'password'" id="password" class="form-control" name="password"
+                       required>
+                <span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">
+                  Please provide a valid password
+                </span>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+            <span class="col-xl-6 offset-xl-2">
+              <button type="submit" class="btn btn-primary">
+                Sign Up
+              </button>
+              <span class="m-3">
+                Existing user? <a routerLink="/login">Log In</a>
+              </span>
+            </span>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>
