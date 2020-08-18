@@ -41,10 +41,13 @@
                 New user? <a routerLink="/login">Sign Up</a>
               </span>
             </span>
-              <!--              <div class="login-failed">-->
-              <!--                <p class="login-failed-text">Login Failed. Please check your credentials and try again. </p>-->
-              <!--              </div>-->
-
+              <div class="login-failed" *ngIf="isError">
+                <p class="login-failed-text">Login Failed. Please check your credentials and try again.</p>
+              </div>
+              <div class="login-failed" [ngStyle]="{'background-color': 'green'}"
+                   *ngIf="this.registerSuccessMessage.length > 0">
+                <p class="register-success-text">{{registerSuccessMessage}}</p>
+              </div>
             </div>
 
           </form>
