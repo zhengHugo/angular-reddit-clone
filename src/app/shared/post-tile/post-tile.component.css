@@ -1,0 +1,39 @@
+.post {
+    --post-line-color: #cccccc;
+    border: 1px solid #cccccc;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #878a8c;
+    position: relative;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.subreddit-text {
+    font-weight: bold;
+}
+
+.posturl .postname {
+    color: black;
+}
+
+.post-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.post-text {
+    margin-top: 10px;
+}
+
+.btnComments {
+    color: #878a8c;
+    margin-right: 10px;
+}
+
+.btnComments:hover {
+    opacity: 0.65;
+    cursor: pointer;
+}

@@ -39,6 +39,7 @@ export class TokenInterceptor implements HttpInterceptor {
       return next.handle(TokenInterceptor.addToken(req, jwtToken));
     }
 
+    // token is empty, retrieve a new token
     return next.handle(req).pipe(catchError(error => {
       if (error instanceof HttpErrorResponse && error.status === 403) {
         return this.handleAuthErrors(req, next);
@@ -49,6 +50,8 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   private handleAuthErrors(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    // block all API calls while refreshing token
+    // Once a new token is received, release all the requests
     this.isTokenRefreshing = true;
     this.refreshTokenSubject.next(null);
 
